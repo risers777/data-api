@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test jest --testTimeout=10000 --silent",
     "dev": "cross-env DATABASE_URL=postgres://user:password@localhost:5432/db nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules"
+    ]
+  },
   "dependencies": {
     "compression": "^1.7.5",
     "dotenv": "^16.4.7",
@@ -21,6 +27,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^3.1.9"
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "sqlite3": "^5.1.7",
+    "supertest": "^7.0.0"
   }
 }
